@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>Currículum | Estudiante de Trabajo Social</title>
+  <style>
+    :root {
+      /* Fondo lavanda muy claro de la página. */
+      --fondo: #f7f8fc;
+      /* Blanco para tarjetas y superficies. */
+      --superficie: #ffffff;
+      /* Índigo para destacar enlaces y elementos importantes. */
+      --primario: #5c4ee5;
+      /* Gris oscuro para el texto principal. */
+      --texto: #111827;
+      /* Gris medio para descripciones y texto secundario. */
+      --secundario: #6b7280;
+      /* Amarillo anaranjado para pequeños acentos. */
+      --acento: #fbbf24;
+      /* Gris azulado para bordes y separadores. */
+      --borde: #e8eaf2;
+      /* Lavanda pálido para fondos de iconos e insignias. */
+      --lavanda: #f0efff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      background: var(--superficie);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .header-inner {
+      width: min(1120px, calc(100% - 48px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark { color: var(--primario); font-size: 23px; }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--secundario);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .navigation a:hover, .contact-link:hover { color: var(--primario); }
+
+    .header-contact {
+      color: var(--primario);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 52px 0 70px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      align-items: center;
+      gap: 42px;
+      padding: 46px 52px;
+      overflow: hidden;
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(27, 30, 66, 0.07);
+    }
+
+    .hero::before {
+      position: absolute;
+      top: -110px;
+      left: 44%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--lavanda);
+      content: "";
+      opacity: .7;
+      pointer-events: none;
+    }
+
+    .hero-copy, .portrait-wrap { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 6px 12px;
+      border: 1px solid #e4e1ff;
+      border-radius: 999px;
+      background: var(--lavanda);
+      color: var(--primario);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primario);
+      content: "";
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(40px, 5.2vw, 66px);
+      font-weight: 850;
+      letter-spacing: -.065em;
+      line-height: 1.04;
+    }
+
+    h1 span { color: var(--primario); }
+
+    .hero-description {
+      max-width: 520px;
+      margin: 19px 0 0;
+      color: var(--secundario);
+      font-size: 16px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+
+    .button {
+      min-height: 45px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 17px;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      background: var(--superficie);
+      color: var(--texto);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .button-primary {
+      border-color: var(--primario);
+      background: var(--primario);
+      color: #fff;
+    }
+
+    .portrait-wrap {
+      justify-self: end;
+      width: 218px;
+      height: 258px;
+      padding: 8px;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      background: var(--superficie);
+      box-shadow: 0 15px 34px rgba(43, 39, 101, .12);
+      transform: rotate(2deg);
+    }
+
+    .portrait {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 13px;
+      object-fit: cover;
+    }
+
+    .contact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .contact-item {
+      min-width: 0;
+      padding: 15px 18px;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      background: var(--superficie);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--secundario);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      overflow-wrap: anywhere;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .section-card {
+      padding: 25px 27px;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      background: var(--superficie);
+      scroll-margin-top: 22px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 18px;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .section-icon {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      flex: 0 0 34px;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--lavanda);
+      color: var(--primario);
+      font-size: 16px;
+    }
+
+    .timeline { display: grid; gap: 18px; }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 17px;
+      border-left: 2px solid #e8e5ff;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 5px;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--primario);
+      border-radius: 50%;
+      background: var(--superficie);
+      content: "";
+    }
+
+    .item-title { margin: 0; font-size: 14px; font-weight: 750; line-height: 1.45; }
+    .item-meta { margin: 5px 0 0; color: var(--secundario); font-size: 13px; }
+
+    .item-date {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f4f3ff;
+      color: var(--primario);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .plain-list { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
+
+    .plain-list li {
+      position: relative;
+      padding-left: 21px;
+      color: #3f4655;
+      font-size: 14px;
+    }
+
+    .plain-list li::before {
+      position: absolute;
+      left: 0;
+      color: var(--primario);
+      content: "✓";
+      font-weight: 800;
+    }
+
+    .language-list { display: grid; gap: 14px; }
+    .language-item { display: flex; align-items: flex-start; gap: 10px; }
+    .language-star { color: var(--acento); font-size: 16px; }
+    .language-name { margin: 0; font-size: 14px; font-weight: 750; }
+    .language-detail { margin: 3px 0 0; color: var(--secundario); font-size: 12px; }
+
+    .site-footer {
+      padding: 20px 24px 30px;
+      color: var(--secundario);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner { width: calc(100% - 32px); }
+      .navigation { gap: 14px; font-size: 12px; }
+      main { width: min(100% - 32px, 560px); padding: 30px 0 46px; }
+      .hero { grid-template-columns: minmax(0, 1fr) 155px; gap: 22px; padding: 32px 26px; }
+      .portrait-wrap { width: 155px; height: 190px; }
+      .contact-strip { grid-template-columns: 1fr; gap: 9px; }
+      .contact-item { padding: 12px 15px; }
+      .content-grid { gap: 13px; }
+      .section-card { padding: 21px; }
+    }
+
+    @media (max-width: 540px) {
+      .header-inner { flex-wrap: wrap; gap: 10px 16px; padding: 12px 0; }
+      .navigation { order: 3; width: 100%; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--borde); }
+      main { width: calc(100% - 28px); padding-top: 22px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; padding: 27px 22px; }
+      .hero::before { top: 38%; left: 42%; width: 200px; height: 200px; }
+      h1 { font-size: clamp(39px, 12vw, 54px); }
+      .hero-description { margin-top: 14px; font-size: 14px; }
+      .hero-actions { gap: 8px; margin-top: 20px; }
+      .button { min-height: 42px; padding: 0 12px; font-size: 12px; }
+      .portrait-wrap { justify-self: center; width: min(68%, 205px); height: 218px; }
+      .content-grid { grid-template-columns: 1fr; gap: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Currículum, inicio">
+        <span class="brand-mark" aria-hidden="true">↗</span>
+        <span>Currículum</span>
+      </a>
+      <nav class="navigation" aria-label="Navegación principal">
+        <a href="#formacion">Formación</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#idiomas">Idiomas</a>
+      </nav>
+      <a class="header-contact" href="mailto:miguelodi10@gmail.com">Contacto ↗</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- ===== SECCIÓN: SOBRE MÍ ===== -->
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-copy">
+        <p class="eyebrow">Sobre mí</p>
+        <h1 id="titulo-principal">Estudiante de <span>Trabajo Social</span></h1>
+        <p class="hero-description">Estudiante de Trabajo Social.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="mailto:miguelodi10@gmail.com">Contactar <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#formacion">Ver formación <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="imagenes/foto.jpg" alt="Fotografía del currículum">
+      </div>
+    </section>
+    <!-- ===== FIN: SOBRE MÍ ===== -->
+
+    <!-- ===== SECCIÓN: DATOS DE CONTACTO ===== -->
+    <section class="contact-strip" aria-label="Datos de contacto">
+      <div class="contact-item">
+        <span class="contact-label">Teléfono</span>
+        <a class="contact-value contact-link" href="tel:603531591">603531591</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Correo electrónico</span>
+        <a class="contact-value contact-link" href="mailto:miguelodi10@gmail.com">miguelodi10@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Ciudad</span>
+        <span class="contact-value">Jerez de la Frontera</span>
+      </div>
+    </section>
+    <!-- ===== FIN: DATOS DE CONTACTO ===== -->
+
+    <div class="content-grid">
+      <!-- ===== SECCIÓN: FORMACIÓN ===== -->
+      <section class="section-card" id="formacion" aria-labelledby="titulo-formacion">
+        <h2 class="section-heading" id="titulo-formacion"><span class="section-icon" aria-hidden="true">▤</span>Formación</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3 class="item-title">Carrera de Trabajo Social</h3>
+            <p class="item-meta">Facultad de Ciencias del Trabajo UCA</p>
+            <span class="item-date">2023 - actualidad</span>
+          </article>
+          <article class="timeline-item">
+            <h3 class="item-title">Bachillerato Ciencias Sociales</h3>
+            <p class="item-meta">I.E.S José Manuel Caballero Bonald</p>
+            <span class="item-date">2017 - 2023</span>
+          </article>
+        </div>
+      </section>
+      <!-- ===== FIN: FORMACIÓN ===== -->
+
+      <!-- ===== SECCIÓN: EXPERIENCIA ===== -->
+      <section class="section-card" id="experiencia" aria-labelledby="titulo-experiencia">
+        <h2 class="section-heading" id="titulo-experiencia"><span class="section-icon" aria-hidden="true">♡</span>Experiencia</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3 class="item-title">Voluntariado en comedor social.</h3>
+          </article>
+        </div>
+      </section>
+      <!-- ===== FIN: EXPERIENCIA ===== -->
+
+      <!-- ===== SECCIÓN: HABILIDADES ===== -->
+      <section class="section-card" id="habilidades" aria-labelledby="titulo-habilidades">
+        <h2 class="section-heading" id="titulo-habilidades"><span class="section-icon" aria-hidden="true">✦</span>Habilidades</h2>
+        <ul class="plain-list">
+          <li>Coordinación dentro del trabajo en equipo.</li>
+          <li>Persona ordenada.</li>
+          <li>Manejo de las herramientas ofimáticas.</li>
+          <li>Disposición para tareas.</li>
+          <li>Comunicación asertiva y empática.</li>
+        </ul>
+      </section>
+      <!-- ===== FIN: HABILIDADES ===== -->
+
+      <!-- ===== SECCIÓN: IDIOMAS ===== -->
+      <section class="section-card" id="idiomas" aria-labelledby="titulo-idiomas">
+        <h2 class="section-heading" id="titulo-idiomas"><span class="section-icon" aria-hidden="true">文</span>Idiomas</h2>
+        <div class="language-list">
+          <div class="language-item">
+            <span class="language-star" aria-hidden="true">★</span>
+            <div><p class="language-name">Español</p><p class="language-detail">Nativo.</p></div>
+          </div>
+          <div class="language-item">
+            <span class="language-star" aria-hidden="true">★</span>
+            <div><p class="language-name">Inglés</p><p class="language-detail">Certificación Oficial de Inglés: Cambridge English B1 GRADE B.</p></div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== FIN: IDIOMAS ===== -->
+
+      <!-- ===== SECCIÓN: OTROS ===== -->
+      <section class="section-card" aria-labelledby="titulo-otros">
+        <h2 class="section-heading" id="titulo-otros"><span class="section-icon" aria-hidden="true">＋</span>Otros</h2>
+        <ul class="plain-list"><li>Permiso de conducir B.</li></ul>
+      </section>
+      <!-- ===== FIN: OTROS ===== -->
+    </div>
+  </main>
+
+  <footer class="site-footer">Currículum profesional</footer>
+</body>
+</html>
